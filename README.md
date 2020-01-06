@@ -2,5 +2,5 @@
 
 This document describes about creating a GRPC server with Java.
 
-Step1: Create a Maven project in eclipse
-Step2: Add the below maven dependencies.
+<b>Step1:</b> Create a Maven project in eclipse <br>
+<b>Step2:</b> Add the below maven dependencies.
