@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package grpctest;
+
+option java_package = "org.grpc_demo.grpctest";
+
+service EmployeeService {
+	rpc empAdd(EmployeeAddRequest) returns (EmployeeAddResponse);
+	rpc empFind(EmployeeFindRequest) returns (EmployeeFindResponse);
+	rpc empListAll(EmployeeListAllReq) returns (EmployeeListAllResp);
+}
+
+message Employee {
+	int32 empId = 1;
+	string empFirstName = 2;
+	string empLastName = 3;
+	
+	enum Dept {
+		NOT_ASSIGNED = 0;
+		INFORMATION_TECHNOLOGY = 1;
+		SALES = 2;
+		MARKETING = 3;
+		CLOUD = 4;
+		DATABASE = 5;
+	}
+	
+	Dept empDept = 4;
+	string empJoiningDate = 5;
+
+	enum EmpStatus {
+		INACTIVE = 0;
+		ACTIVE = 1;
+	}
+	EmpStatus status = 6;
+}
+
+message EmployeeAddRequest {
+	Employee empObj = 1;
+}
+
+message EmployeeAddResponse {
+	string respMessage = 1;
+	int32 respCode = 2;
+}
+
+/**
+ * For employee FIND service: empFind
+ */
+message EmployeeFindRequest {
+	int32 empId = 1;
+}
+
+message EmployeeFindResponse {
+	Employee respEmpObjMessage = 1;
+	string respMessage = 2;
+	int32 respCode = 3;
+}
+
+
+/**
+ * For employee list all service: empListAll
+ */
+
+message EmployeeListAllReq {
+}
+
+message EmployeeListAllResp {
+	repeated Employee empObjList = 1;
+}
+
+
+
+
+
+
+
